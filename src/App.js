@@ -25,11 +25,12 @@ const App = () => {
   ];
 
   const [ screenCapture , setScreenCapture] = useState("")
-  const refs = useRef(content.map(() => React.createRef()));
+  // const refs = useRef(content.map(() => React.createRef()));
+  const ref = useRef();
   const [image, takeScreenshot] = useScreenshot()
   const [ resultUrl, setResultUrl] = useState("")
   const [index, setIndex] = useState(null)
-  const getImage = () => takeScreenshot(    refs.current[index].current  );
+  const getImage = () => takeScreenshot(ref?.current);
   
       useEffect(() => {
         if(image) {
@@ -49,8 +50,7 @@ const App = () => {
           var form_data = new FormData();
           form_data.append('file', file);
           // connect api upload image
-          fetch(
-            'https://testing3.matchmysound.com/api/upload_image', {
+          fetch('https://testing3.matchmysound.com/api/upload_image', {
             method: 'POST',
             body: form_data
           }).then(resp => resp.text()).then(url => {
@@ -81,12 +81,12 @@ const App = () => {
     // share content to facebook
     const getUrlImage = (index) => {
           if(index) setIndex(index)
-          if(refs.current[index].current && index === index) {
+          // if(refs.current[index].current) {
             getImage();
-            // if(resultUrl) {
+            if(resultUrl) {
               window.open("https://www.facebook.com/sharer/sharer.php?u=" + resultUrl, "pop", "width=300, height=300, scrollbars=no");
-            // }
-          }
+            }
+          // }
     }
 
     return (
@@ -102,7 +102,7 @@ const App = () => {
                   <div className='flex flex-row'>
                   {content.map((item, index) => {
                     return (
-                      <div ref={refs.current[index]} key={index}>
+                      <div ref={ref} key={index}>
                         <div className="max-w-sm rounded overflow-hidden shadow-lg mr-5">
                             <img className="w-full h-60" src={item.image} alt="Sunset in the mountains" />
                             <div className="px-6 py-4">
