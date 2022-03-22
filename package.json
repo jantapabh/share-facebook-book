@@ -15,7 +15,10 @@
     "react-scripts": "5.0.0",
     "react-share": "^4.4.0",
     "reactjs-popup": "^2.0.5",
+<<<<<<< HEAD
     "use-react-screenshot": "^3.0.0",
+=======
+>>>>>>> 85bc6c7e2085f67ee60d66fd0383fdbc105bc2ff
     "web-vitals": "^2.1.4"
   },
   "scripts": {
