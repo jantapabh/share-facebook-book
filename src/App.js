@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect} from 'react';
 import { ScreenCapture } from 'react-screen-capture';
-import { FacebookShareButton, TwitterShareButton } from "react-share";
-import { FacebookIcon, TwitterIcon } from "react-share";
+import { FacebookIcon } from "react-share";
 import { useScreenshot } from 'use-react-screenshot'
 
 const App = () => {

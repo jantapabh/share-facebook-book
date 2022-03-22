@@ -206,12 +206,19 @@ export default class ScreenCapture extends Component {
 
         if (!on) return this.renderChild();
 
-        return ( 
-            <div onMouseMove = { this.handleMouseMove }
+        return ( <
+            div onMouseMove = { this.handleMouseMove }
             onMouseDown = { this.handleMouseDown }
-            onMouseUp = { this.handleMouseUp }>
-            { this.renderChild() } <div className = { `overlay ${isMouseDown && "highlighting"}` } style = {{ borderWidth } }/> 
-            <div className = "crosshairs"style = {{ left: crossHairsLeft + "px", top: crossHairsTop + "px" } }/> </div>
+            onMouseUp = { this.handleMouseUp } > { this.renderChild() } < div className = { `overlay ${isMouseDown && "highlighting"}` }
+            style = {
+                { borderWidth }
+            }
+            />  <
+            div className = "crosshairs"
+            style = {
+                { left: crossHairsLeft + "px", top: crossHairsTop + "px" }
+            }
+            /> </div >
         );
     }
 }
